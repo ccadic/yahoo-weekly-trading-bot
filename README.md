@@ -60,29 +60,29 @@ Puis lance le bot sans préciser `--symbols` :
 python tradingbot_weekly.py --symbols-file symbols.txt --strategy aggressive --risk 0.02 --max-positions 8
 ```
 
-### Filtres de qualité
+### Quality Filters
 
-- `--volume-min` : volume moyen hebdomadaire minimum (défaut 100 000).
-- `--volatility-max` : volatilité historique maximum annualisée (défaut 0.5).
+- `--volume-min`: minimum average weekly volume (default 100000).
+- `--volatility-max`: maximum annualized historical volatility (default 0.5).
 
-Ces filtres permettent d'éviter les titres exotiques ou trop volatils, réduisant le risque du backtest.
+These filters help avoid illiquid or overly volatile stocks and reduce backtest risk.
 
-## Dépendances
+## Dependencies
 
 - Python 3.10+
 - `pandas`
 - `numpy`
 - `requests`
 
-## Exemple d'utilisation
+## Example
 
 ```bash
 python tradingbot_weekly.py --symbols AAPL,MSFT,NVDA,AMZN,GOOGL,META --years 8 --capital 100000 --risk 0.01 --max-positions 5
 ```
 
-## Fichiers de sortie
+## Output Files
 
-Le script écrit dans `output/` :
+The script writes output to `output/`:
 
 - `summary.csv`
 - `trades.csv`
@@ -90,17 +90,19 @@ Le script écrit dans `output/` :
 - `latest_signals.csv`
 - `weekly_data/*.csv`
 
-## Limites actuelles
+## Current Limitations
 
-- backtest simple, sans frais ni slippage
-- exécution supposée à la clôture hebdo
-- univers de titres fourni manuellement
-- pas encore de screener qualité/liquidité avancé
+- Simple backtest with no fees or slippage
+- Execution assumed at weekly close
+- Symbol universe supplied manually
+- No advanced quality/liquidity screener yet
 
-La bonne suite consiste à valider les résultats du backtest, puis ajouter :
+The next improvements are:
 
-- frais de transaction
-- filtrage liquidité
-- classement relatif des titres
-- stockage local du cache des données
-- envoi d'alertes ou ordres simulés
+- transaction fees
+- liquidity filtering
+- relative ranking of symbols
+- local data cache storage
+- alerts or simulated order execution
+
+
